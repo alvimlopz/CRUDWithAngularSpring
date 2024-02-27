@@ -8,7 +8,7 @@ import { Pipe } from '@angular/core';
   providedIn: 'root'
 })
 export class CoursesService {
-  private readonly API = 'http://localhost:8081/api/courses'
+  private readonly API = '/api/courses'
   constructor(private httpClient: HttpClient) { }
 
   list(){
