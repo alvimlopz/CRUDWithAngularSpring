@@ -46,7 +46,7 @@ export class CoursesComponent implements OnInit{
 
   onAdd(){
     this.router.navigate(['course/new']);
-   // this.router.navigate(commands: ['new'], extras: {relativeTo: this.route});
+    //this.router.navigate(commands: ['new'], extras: {relativeTo: this.route});
   }
 
 }
