@@ -13,6 +13,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 })
 export class CoursesComponent implements OnInit{
 
+
   courses$: Observable<Course[]>;
 
   //coursesService : CoursesService;
@@ -45,8 +46,9 @@ export class CoursesComponent implements OnInit{
   }
 
   onAdd(){
-    this.router.navigate(['course/new']);
-    //this.router.navigate(commands: ['new'], extras: {relativeTo: this.route});
+ //  this.router.navigate(['/courses/new'])
+    //this.router.navigate(['course/new']);
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }
