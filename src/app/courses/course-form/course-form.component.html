@@ -17,8 +17,8 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button color="primary">SALVAR</button>
-    <button mat-raised-button>CANCELAR</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">SALVAR</button>
+    <button mat-raised-button (click)="onCancel()">CANCELAR</button>
   </mat-card-actions>
 
 </mat-card>
