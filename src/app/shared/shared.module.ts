@@ -6,6 +6,7 @@ import { CategoryPipe } from './pipes/category.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     ErrorDialogComponent,
