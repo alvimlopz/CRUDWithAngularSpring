@@ -27,11 +27,9 @@ throw new Error('Method not implemented.');
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe(result => console.log(result), error => {
-      this.snackBar.open("Erro ao salvar");
-    });
+    this.service.save(this.form.value).subscribe(result => console.log(result), error => this.onError());
+    };
 
-  }
 
   private onSuccess() {
     this.snackBar.open('Curso salvo com sucesso!', '', { duration: 5000 });
