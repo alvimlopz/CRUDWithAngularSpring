@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 import { CoursesService } from '../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -9,15 +10,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './course-form.component.scss'
 })
 export class CourseFormComponent implements OnInit {
-onCancel() {
-throw new Error('Method not implemented.');
-}
 
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
     private service: CoursesService,
     private snackBar: MatSnackBar,
+    private location: Location
 
     ){
     this.form = this.formBuilder.group({
@@ -27,7 +26,7 @@ throw new Error('Method not implemented.');
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe(result => console.log(result), error => this.onError());
+    this.service.save(this.form.value).subscribe(result => this.onSuccess(), error => this.onError());
     };
 
 
@@ -35,6 +34,10 @@ throw new Error('Method not implemented.');
     this.snackBar.open('Curso salvo com sucesso!', '', { duration: 5000 });
     this.onCancel();
   }
+
+  onCancel() {
+    this.location.back();
+    }
 
   private onError() {
     this.snackBar.open('Erro ao salvar curso.', '', { duration: 5000 });
