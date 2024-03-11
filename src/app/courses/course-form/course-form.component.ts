@@ -7,6 +7,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './course-form.component.scss'
 })
 export class CourseFormComponent implements OnInit {
+onCancel() {
+throw new Error('Method not implemented.');
+}
+onSubmit() {
+throw new Error('Method not implemented.');
+}
 
 
   form: FormGroup;
