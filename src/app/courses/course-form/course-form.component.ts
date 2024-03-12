@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 import { CoursesService } from '../services/courses.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,18 +11,22 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CourseFormComponent implements OnInit {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    name: [''],
+    category: ['']
+  });
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: NonNullableFormBuilder,
     private service: CoursesService,
     private snackBar: MatSnackBar,
     private location: Location
 
     ){
-    this.form = this.formBuilder.group({
-      name: [null],
-      category: [null]
-    });
+   // this.form
+  }
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   onSubmit() {
@@ -44,8 +48,6 @@ export class CourseFormComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
 }
