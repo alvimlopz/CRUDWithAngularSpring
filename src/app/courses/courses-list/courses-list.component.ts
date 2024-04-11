@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Course } from '../models/course';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,8 +12,8 @@ import { catchError } from 'rxjs';
 })
 export class CoursesListComponent implements OnInit{
 
-  courses: Course[] =  [];
-  displayedColumns = ['name', 'category', 'actions'];
+  @Input() courses: Course[] =  [];
+  readonly displayedColumns = ['name', 'category', 'actions'];
 
   constructor(private coursesService : CoursesService,
     public dialog: MatDialog,
